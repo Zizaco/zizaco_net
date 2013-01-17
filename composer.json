@@ -1,0 +1,22 @@
+{
+	"require": {
+		"php": ">=5.4.0",
+		"laravel/framework": "4.0.*",
+		"zizaco/confide": "dev-master",
+		"zizaco/lessy": "dev-master",
+		"meido/form": "1.1.*",
+		"jasonlewis/basset": "dev-master",
+		"laravelbook/ardent": "1.*",
+		"leafo/lessphp": "v0.3.8"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/tests/TestCase.php"
+		]
+	},
+	"minimum-stability": "dev"
+}
