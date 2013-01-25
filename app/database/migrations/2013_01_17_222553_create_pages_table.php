@@ -16,10 +16,9 @@ class CreatePagesTable extends Migration {
         {
             $table->increments('id');
             $table->string('title');
-            $table->string('lean_title');
+            $table->string('slug');
             $table->text('content');
             $table->integer('author_id'); // users table relation
-            $table->boolean('confirmed')->default(false);
             $table->timestamps();
         });
 	}

@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'pt',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,6 +109,7 @@ return array(
 		'Zizaco\Confide\ConfideServiceProvider',
 		'Zizaco\Lessy\LessyServiceProvider',
 		'Meido\Form\FormServiceProvider',
+		'Meido\HTML\HTMLServiceProvider',
 		'Basset\BassetServiceProvider',
 
 	),
@@ -172,6 +173,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Confide'         => 'Zizaco\Confide\ConfideFacade',
 		'Form' 	          => 'Meido\Form\FormFacade',
+		'HTML' 	          => 'Meido\HTML\HTMLFacade',
 		'Basset'          => 'Basset\Facades\Basset',
 
 	),

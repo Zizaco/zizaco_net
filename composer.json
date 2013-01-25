@@ -4,10 +4,12 @@
 		"laravel/framework": "4.0.*",
 		"zizaco/confide": "dev-master",
 		"zizaco/lessy": "dev-master",
+		"meido/html": "1.1.*",
 		"meido/form": "1.1.*",
 		"jasonlewis/basset": "dev-master",
 		"laravelbook/ardent": "1.*",
-		"leafo/lessphp": "v0.3.8"
+		"leafo/lessphp": "v0.3.8",
+		"flaviozantut/avatars":"*"
 	},
 	"autoload": {
 		"classmap": [

@@ -17,4 +17,9 @@ class BaseController extends Controller {
 		}
 	}
 
+	protected function prepareMenu()
+	{		
+		$this->layout->with( 'menuitens', Page::renderMenu() );
+	}
+
 }

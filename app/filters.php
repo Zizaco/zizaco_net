@@ -35,14 +35,11 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::route('login');
+	if (Auth::guest()) return Redirect::action('UserController@login');
 });
 
-
-Route::filter('guest', function()
-{
-	if (Auth::check()) return Redirect::to('/');
-});
+Route::when('admin', 'auth');
+Route::when('admin/*', 'auth');
 
 /*
 |--------------------------------------------------------------------------

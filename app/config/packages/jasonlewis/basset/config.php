@@ -111,6 +111,11 @@ return array(
 		{
 			$collection->requireTree('assets/css/admin');
 		},
+
+		'js_bottom' => function($collection)
+		{
+			$collection->requireTree('assets/js/bottom');
+		},
 	),
 
 	/*

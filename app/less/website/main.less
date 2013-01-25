@@ -1,15 +1,98 @@
+/**
+    Vars and mixins
+**/
+
+// Variables
+@layout-url: "../../img/layout";
+
+// Border radius with vendors
+.border-radius (@a, @a, @a, @a) {
+    border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+}
+
+.border-radius (@a) {
+    .border-radius(@a,@a,@a,@a);
+}
+
+/**
+    Common styling
+**/
+
 body{
-    background-color: #EEE;
+    margin: 0;
+    font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #444;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 10px 0;
+  font-family: pt-sans-narrow, serif;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+  text-transform:uppercase;
+}
+
+small{
+  opacity: 0.7;
+}
+
+a {
+    color: #3fa757;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #3fa757;
+    color: #fff;
+}
+
+p{
+  text-align: justify;
 }
 
 div.maincontent{
-    padding: 40px;
-    border-radius: 5px;
-    moz-border-radius: 5px;
-    background-color: #FFF;
-    width: 600px;
+    max-width: 1000px;
     margin: auto;
     margin-top: 40px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    padding: 0px 40px;
+}
+
+div.menubar{
+  float:right;
+  font-family: pt-sans-narrow, serif;
+  font-size: 30px;
+}
+
+.title{
+  display: block;
+  margin-bottom: 0px;
+  font-family: pt-sans-narrow, serif;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 40px;
+  text-rendering: optimizelegibility;
+}
+
+.post{
+  color: #444;
+  padding: 10px 15px;
+  border-radius: 4px;
+
+  p{
+    color: #999;
+  }
+
+  .date{
+    float: right;
+  }
+
+  &:hover{
+    background-color: #EEE;
+  }
 }

@@ -10,7 +10,7 @@
 |
 */
 
-class UserController extends BaseController {
+class UserController extends Admin\AdminController {
 
     /**
      * Displays the form for account creation
@@ -18,7 +18,7 @@ class UserController extends BaseController {
      */
     public function create()
     {
-        $this->layout->content = View::make('user.signup');
+        $this->layout->content = View::make('users.signup');
     }
 
     /**
@@ -39,9 +39,7 @@ class UserController extends BaseController {
         $user->password_confirmation = Input::get( 'password_confirmation' ); 
 
         // Save if valid
-        $user->save();
-
-        if ( $user->id )
+        if ( $user->save() )
         {
             return Redirect::action('UserController@login');
         }
@@ -62,7 +60,7 @@ class UserController extends BaseController {
      */
     public function login()
     {
-        $this->layout->content = View::make('user.login');
+        $this->layout->content = View::make('users.login');
     }
 
     /**
@@ -79,7 +77,7 @@ class UserController extends BaseController {
 
         if ( Confide::logAttempt( $input ) ) 
         {
-            return Redirect::to('/');
+            return Redirect::action('Admin\PostsController@index');
         }
         else
         {
@@ -117,7 +115,7 @@ class UserController extends BaseController {
      */
     public function forgot_password()
     {
-        $this->layout->content = View::make('user.forgot_password');
+        $this->layout->content = View::make('users.forgot_password');
     }
 
     /**
