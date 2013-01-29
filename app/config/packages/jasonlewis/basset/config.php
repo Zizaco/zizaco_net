@@ -112,9 +112,21 @@ return array(
 			$collection->requireTree('assets/css/admin');
 		},
 
-		'js_bottom' => function($collection)
+		'js_admin' => function($collection)
 		{
 			$collection->requireTree('assets/js/bottom');
+			$collection->add('assets/js/scripts/admin.js');
+		},
+
+		'js_website' => function($collection)
+		{
+			$collection->requireTree('assets/js/bottom');
+		},
+
+		'js_syntaxh' => function($collection)
+		{
+			$collection->add('assets/js/syntaxh/prettify.js');
+			$collection->add('assets/js/syntaxh/apply.js');
 		},
 	),
 

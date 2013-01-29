@@ -172,6 +172,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Confide'         => 'Zizaco\Confide\ConfideFacade',
+		'Markdown'		  => 'Zizaco\LaravelMd\Markdown',
 		'Form' 	          => 'Meido\Form\FormFacade',
 		'HTML' 	          => 'Meido\HTML\HTMLFacade',
 		'Basset'          => 'Basset\Facades\Basset',

@@ -17,6 +17,7 @@
             @yield('content')
         </div>
         
-        {{ Basset::show('js_bottom.js') }}
+        {{ Basset::show('js_website.js') }}
+        @yield('aditional_js')
     </body>
 </html>

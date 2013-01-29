@@ -1,0 +1,51 @@
+.prettyprint {
+  overflow: auto;
+  white-space: pre-wrap;
+  background-color: #222;
+  font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  padding: 10px;
+}
+.prettyprint ol {
+  color: #777;
+  padding: 2em 3em 2em 5em;
+}
+.prettyprint code {
+  background-color: transparent;
+  font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  padding: 0;
+  border-radius: 0;
+}
+.prettyprint ol li {
+  padding: 0;
+}
+.prettyprint .com {
+  color: #555;
+}
+.prettyprint .lit {
+  color: #17CFB6;
+}
+.prettyprint .pun,
+.prettyprint .opn,
+.prettyprint .clo {
+  color: #93a1a1;
+}
+.prettyprint .fun {
+  color: #dc322f;
+}
+.prettyprint .str,
+.prettyprint .atv {
+  color: #E3B446;
+}
+.prettyprint .kwd,
+.prettyprint .linenums .tag {
+  color: #DB613B;
+}
+.prettyprint .typ,
+.prettyprint .atn,
+.prettyprint .dec,
+.prettyprint .var {
+  color: #fff;
+}
+.prettyprint .pln {
+  color: #ccc;
+}

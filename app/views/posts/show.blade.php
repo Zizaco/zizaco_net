@@ -3,7 +3,13 @@
 
     <span class='date'>Postado em {{ $post->postedAt() }}</span>
 
-    <p>{{ $post->content }}</p>
+    <div class='page_content'>
+        {{ Markdown::parse($post->content) }}
+    </div>
 
     {{ HTML::action( 'PostsController@index', 'Voltar' ) }}
+@stop
+
+@section ('aditional_js')
+    {{ Basset::show('js_syntaxh.js') }}
 @stop

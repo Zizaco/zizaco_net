@@ -67,3 +67,30 @@ div.menubar {
 .post:hover {
   background-color: #EEE;
 }
+pre {
+  padding: 4px;
+  margin: 0px 20px;
+}
+code {
+  background-color: #EEE;
+  padding: 4px;
+  border-radius: 4px;
+}
+.page_content {
+  margin: 50px 0px;
+}
+.page_content h2 {
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  border-bottom: solid 2px #A3D9AF;
+}
+.page_content h3 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+.page_content h4 {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 40px;
+}

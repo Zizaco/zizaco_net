@@ -22,7 +22,7 @@
         {{ Form::text('slug', array_get( $f,'slug') ) }}
 
         {{ Form::label('content', 'Conteudo (Markdown)') }}
-        {{ Form::textarea('content', array_get( $f,'content') ) }}
+        {{ Form::textarea('content', array_get( $f,'content'), ['data-editor'] ) }}
 
         {{ Form::label('lean_content', 'Conteudo resumido') }}
         {{ Form::textarea('lean_content', array_get( $f,'lean_content') ) }}

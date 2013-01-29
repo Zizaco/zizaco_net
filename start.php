@@ -39,16 +39,19 @@ $app->instance('path.base', __DIR__);
 |
 */
 
-$env = $app->detectEnvironment(function(){
-    if( isset($_ENV["ENVIRONMENT"]) )
-    {
-        return $_ENV["ENVIRONMENT"];
-    }
-    else
-    {
-        return 'local';
-    }
-});
+if( isset($_ENV["ENVIRONMENT"]) )
+{
+    $env = $app->detectEnvironment(array(
+        $_ENV["ENVIRONMENT"] => array('ubuntu'),
+    ));    
+}
+else
+{
+    $env = $app->detectEnvironment(array(
+        'local' => array('ubuntu'),
+    ));
+}
+
 
 /*
 |--------------------------------------------------------------------------

@@ -6,7 +6,7 @@ div.maincontent {
   border-radius: 5px;
   moz-border-radius: 5px;
   background-color: #FFF;
-  width: 600px;
+  width: 800px;
   margin: auto;
   margin-top: 40px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
@@ -23,4 +23,19 @@ div.maincontent {
   position: absolute;
   width: 100%;
   z-index: 99;
+}
+textarea {
+  width: 100%;
+}
+textarea[data-editor] {
+  font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 12px;
+  height: 500px;
+  background-color: #333;
+  color: #EEE;
+}
+textarea[data-editor]:focus {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
