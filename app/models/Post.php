@@ -19,6 +19,14 @@ class Post extends Ardent {
         'author_id' => 'required|numeric',
     );
 
+    // Array used in FactoryMuff
+    public static $factory = array(
+        'title' => 'string',
+        'slug' => 'string',
+        'content' => 'text',
+        'author_id' => 'factory|User',
+    );
+
     /**
      * Belongs to user
      */

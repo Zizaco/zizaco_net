@@ -176,6 +176,7 @@ return array(
 		'Form' 	          => 'Meido\Form\FormFacade',
 		'HTML' 	          => 'Meido\HTML\HTMLFacade',
 		'Basset'          => 'Basset\Facades\Basset',
+		'FactoryMuff'     => 'Zizaco\FactoryMuff\Facade\FactoryMuff',
 
 	),
 
