@@ -4,11 +4,15 @@
 		"laravel/framework": "4.0.*",
 		"zizaco/confide": "dev-master",
 		"zizaco/lessy": "dev-master",
+		"zizaco/factory-muff": "dev-master",
 		"meido/html": "1.1.*",
 		"meido/form": "1.1.*",
 		"jasonlewis/basset": "dev-master",
 		"laravelbook/ardent": "1.*",
 		"dflydev/markdown": "1.0.*@dev"
+	},
+	"require-dev": {
+		"mockery/mockery": "0.7.*"
 	},
 	"autoload": {
 		"classmap": [
