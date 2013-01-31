@@ -20,6 +20,16 @@ class Page extends Ardent {
     );
 
     /**
+     * Array used by FactoryMuff
+     */
+    public static $factory = array(
+        'title' => 'string',
+        'slug' => 'string',
+        'content' => 'text',
+        'author_id' => 'factory|User',
+    );
+
+    /**
      * Belongs to user
      */
     public function author()

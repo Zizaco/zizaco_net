@@ -19,7 +19,9 @@ class Post extends Ardent {
         'author_id' => 'required|numeric',
     );
 
-    // Array used in FactoryMuff
+    /**
+     * Array used by FactoryMuff
+     */
     public static $factory = array(
         'title' => 'string',
         'slug' => 'string',
@@ -40,7 +42,10 @@ class Post extends Ardent {
      */
     public function postedAt()
     {
-        $date_obj =  DateTime::createFromFormat('Y-m-d H:i:s', $this->created_at);
+        $date_obj =  $this->created_at;
+
+        if (is_string($this->created_at))
+            $date_obj =  DateTime::createFromFormat('Y-m-d H:i:s', $date_obj);
 
         return $date_obj->format('d/m/Y');
     }

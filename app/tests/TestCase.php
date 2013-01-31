@@ -10,7 +10,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     protected $f;
 
     /**
-     * Migrates the database if needed and then setup FactoryMuff
+     * Prepare for tests
      *
      */
     public function setUp()
@@ -35,18 +35,13 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     }
 
     /**
-     * Set the mailer to 'pretend'. This cause the tests to run
-     * quicker.
+     * Migrates the database and set the mailer to 'pretend'.
+     * This cause the tests to run quicker.
      *
      */
     private function prepareForTests()
     {
-        if ( ! defined('PREPARE_ONCE') )
-        {
-            Mail::pretend(true);
-            Artisan::call('migrate');
-
-            define('PREPARE_ONCE', true);
-        }
+        Artisan::call('migrate');
+        Mail::pretend(true);
     }
 }
