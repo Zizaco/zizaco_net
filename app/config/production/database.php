@@ -9,9 +9,9 @@ return array(
         'mysql' => array(
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => getenv("DATABASE_NAME"),
-            'username'  => getenv("DATABASE_USERNAME"),
-            'password'  => getenv("DATABASE_PASSWORD"),
+            'database'  => getenv("ZIZACO_NET_DATABASE_NAME"),
+            'username'  => getenv("ZIZACO_NET_DATABASE_USERNAME"),
+            'password'  => getenv("ZIZACO_NET_DATABASE_PASSWORD"),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
