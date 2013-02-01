@@ -61,3 +61,9 @@ Route::get(    'user/confirm/{code}',  'UserController@confirm' );
 Route::get(    'user/forgot_password', 'UserController@forgot_password' );
 Route::post(   'user/reset_password',  'UserController@reset_password' );
 Route::get(    'user/logout',          'UserController@logout' );
+
+// Errors
+App::missing(function($exception)
+{
+    return Redirect::action('PostsController@index');
+});
