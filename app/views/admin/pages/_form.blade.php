@@ -1,6 +1,6 @@
 <?php
     if(isset($page))
-        $f = array_merge( $page->attributes, Input::old() );
+        $f = array_merge( $page->toArray(), Input::old() );
     else
         $f = array_merge( Input::old() );
 ?>
@@ -17,6 +17,11 @@
     <fieldset>
         {{ Form::label('title', 'Título') }}
         {{ Form::text('title', array_get( $f,'title') ) }}
+
+        <label class="checkbox">
+            {{ Form::checkbox('display', 1, array_get( $f,'display') ) }}
+            Mostrar no menu
+        </label>
 
         {{ Form::label('slug', 'Slug (URL)') }}
         {{ Form::text('slug', array_get( $f,'slug') ) }}

@@ -39,3 +39,6 @@ textarea[data-editor]:focus {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
+.inline label {
+  display: inline;
+}

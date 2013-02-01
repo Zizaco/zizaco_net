@@ -2,7 +2,8 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Post extends Ardent {
+class Post extends Ardent
+{
 
     /**
      * Table
@@ -26,7 +27,8 @@ class Post extends Ardent {
         'title' => 'string',
         'slug' => 'string',
         'content' => 'text',
-        'author_id' => 'factory|User',
+        'author_id' => 'factory|User', // This will return the id of a existent User.
+        'display' => '1'
     );
 
     /**
@@ -38,7 +40,17 @@ class Post extends Ardent {
     }
 
     /**
+     * Has many commments
+     */
+    public function comments()
+    {
+        return $this->hasMany( 'Comment', 'post_id' );
+    }
+
+    /**
      * Post date
+     *
+     * @return string
      */
     public function postedAt()
     {

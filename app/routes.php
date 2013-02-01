@@ -29,6 +29,9 @@ Route::get(    'post/{slug}',          'PostsController@show' );
 // Posts
 Route::get(    'page/{slug}',          'PagesController@show' );
 
+// Comments
+Route::post(   'page/{slug}/comment',  'CommentsController@store' );
+
 // Admin/Pages
 Route::get(    'admin/pages',          'Admin\PagesController@index' );
 Route::get(    'admin/page',           'Admin\PagesController@index' );

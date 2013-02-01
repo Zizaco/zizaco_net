@@ -42,6 +42,7 @@ class PagesController extends AdminController {
 		$page->slug = Input::get( 'slug' );
 		$page->content = Input::get( 'content' );
 		$page->author_id = Confide::user()->id;
+		$page->display = Input::get( 'display' );
 
 		// Save if valid
 		if ( $page->save() )
@@ -97,6 +98,7 @@ class PagesController extends AdminController {
 		$page->title = Input::get( 'title' );
 		$page->slug = Input::get( 'slug' );
 		$page->content = Input::get( 'content' );
+		$page->display = Input::get( 'display' );
 
 		// Save if valid
 		if ( $page->save() )

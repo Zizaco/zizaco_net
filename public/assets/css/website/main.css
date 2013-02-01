@@ -94,3 +94,86 @@ code {
   margin-top: 40px;
   margin-left: 40px;
 }
+.page_content img {
+  max-width: 100%;
+}
+.comments {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.comments div.comment {
+  background-color: #eee;
+  padding: 10px;
+  margin: 10px 0px;
+  opacity: 0.7;
+}
+.comments div.comment img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 68px;
+}
+.comments div.comment:hover {
+  opacity: 1;
+}
+.comments div.comment .name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.comments div.comment .date {
+  float: right;
+}
+.comments form fieldset {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+.comments form span.field {
+  border: solid 4px #ddd;
+  padding: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.comments form span.field.fullw {
+  display: block;
+  margin-right: 0px;
+}
+.comments form input,
+.comments form textarea {
+  border: none;
+  font-size: 14px;
+  font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.comments form input:focus,
+.comments form textarea:focus {
+  outline: none;
+}
+.comments form textarea {
+  display: block;
+  width: 99%;
+  height: 45px;
+}
+.comments form .btn {
+  background-color: #3fa757;
+  border: none;
+  border-bottom: solid 5px #3F9152;
+  color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+.comments form .btn:hover {
+  border-bottom: solid 3px #3F9152;
+  border-top: solid 2px #FFF;
+  opacity: 0.8;
+}
+.comments form .alert-error {
+  background-color: #F88;
+  padding: 3px;
+  margin-left: 2px;
+  color: #fff;
+  margin-bottom: 10px;
+}

@@ -7,6 +7,8 @@
         {{ Markdown::parse($post->content) }}
     </div>
 
+    @include( 'posts._comments' )
+
     {{ HTML::action( 'PostsController@index', 'Voltar' ) }}
 @stop
 

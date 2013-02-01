@@ -43,6 +43,7 @@ class PostsController extends AdminController {
 		$post->content = Input::get( 'content' );
 		$post->lean_content = Input::get( 'lean_content' );
 		$post->author_id = Confide::user()->id;
+		$post->display = Input::get( 'display' );
 
 		// Save if valid
 		if ( $post->save() )
@@ -99,6 +100,7 @@ class PostsController extends AdminController {
 		$post->slug = Input::get( 'slug' );
 		$post->content = Input::get( 'content' );
 		$post->lean_content = Input::get( 'lean_content' );
+		$post->display = Input::get( 'display' );
 
 		// Save if valid
 		if ( $post->save() )

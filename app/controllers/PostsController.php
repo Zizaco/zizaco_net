@@ -11,7 +11,10 @@ class PostsController extends BaseController {
 	{
 		$this->prepareMenu();
 
-		$posts = Post::with('author')->orderBy('id','desc')->paginate(8);
+		$posts = Post::with('author')
+			->where('display','=', '1')
+			->orderBy('id','desc')
+			->paginate(8);
 
 		$this->layout->content = View::make('posts.index')
 			->with( 'posts', $posts );
@@ -26,7 +29,9 @@ class PostsController extends BaseController {
 	{
 		$this->prepareMenu();
 		
-		$post = Post::where('slug','=',$slug)->first();
+		$post = Post::with('author', 'comments')
+			->where('slug','=',$slug)
+			->first();
 
 		$this->layout->content = View::make('posts.show')
 			->with( 'post', $post );

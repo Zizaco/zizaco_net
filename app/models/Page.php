@@ -27,6 +27,7 @@ class Page extends Ardent {
         'slug' => 'string',
         'content' => 'text',
         'author_id' => 'factory|User',
+        'display' => '1'
     );
 
     /**
@@ -44,7 +45,10 @@ class Page extends Ardent {
     {
         $pages = Cache::rememberForever('pages_for_menu', function()
         {
-            return Page::select(array('title','slug'))->get()->toArray();
+            return Page::select(array('title','slug'))
+                ->where('display','=', '1')
+                ->get()
+                ->toArray();
         });
 
         $result = '';
@@ -62,7 +66,7 @@ class Page extends Ardent {
      */
     public function afterSave( $success )
     {
-        if( $success )
+        if( Cache::get('pages_for_menu') )
             Cache::forget('pages_for_menu');
     }
 
@@ -72,7 +76,9 @@ class Page extends Ardent {
     public function delete()
     {
         parent::delete();
-        Cache::forget('pages_for_menu');
+
+        if( Cache::get('pages_for_menu') )
+            Cache::forget('pages_for_menu');
     }
 
 }

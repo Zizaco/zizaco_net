@@ -3,13 +3,6 @@
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
     /**
-     * FactoryMuff instance
-     *
-     * @var Zizaco\FactoryMuff\FactoryMuff
-     */
-    protected $f;
-
-    /**
      * Prepare for tests
      *
      */
@@ -36,7 +29,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
     /**
      * Migrates the database and set the mailer to 'pretend'.
-     * This cause the tests to run quicker.
+     * This will cause the tests to run quickly.
      *
      */
     private function prepareForTests()
