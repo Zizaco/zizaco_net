@@ -53,8 +53,8 @@ Route::put(    'admin/post/{id}',      'Admin\PostsController@update' );
 Route::delete( 'admin/post/{id}',      'Admin\PostsController@destroy' );
 
 // Confide Routes
-Route::get(    'user/create',          'UserController@create' );
-Route::post(   'user',                 'UserController@store' );
+//Route::get(    'user/create',          'UserController@create' );
+//Route::post(   'user',                 'UserController@store' );
 Route::get(    'user/login',           'UserController@login' );
 Route::post(   'user/login',           'UserController@do_login' );
 Route::get(    'user/confirm/{code}',  'UserController@confirm' );
