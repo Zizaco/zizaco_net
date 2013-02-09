@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'fallback_locale' => 'pt',
+	'fallback_locale' => 'en',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -84,6 +84,7 @@ return array(
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\CommandCreatorServiceProvider',
+		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ComposerServiceProvider',
 		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
@@ -97,7 +98,9 @@ return array(
 		'Illuminate\Database\MigrationServiceProvider',
 		'Illuminate\Pagination\PaginationServiceProvider',
 		'Illuminate\Foundation\Providers\PublisherServiceProvider',
+		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
+		'Illuminate\Auth\Reminders\ReminderServiceProvider',
 		'Illuminate\Database\SeedServiceProvider',
 		'Illuminate\Foundation\Providers\ServerServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
@@ -154,7 +157,6 @@ return array(
 		'DB'              => 'Illuminate\Support\Facades\DB',
 		'Eloquent'        => 'Illuminate\Database\Eloquent\Model',
 		'Event'           => 'Illuminate\Support\Facades\Event',
-		'EventSubscriber' => 'Illuminate\Events\Subscriber',
 		'File'            => 'Illuminate\Support\Facades\File',
 		'Hash'            => 'Illuminate\Support\Facades\Hash',
 		'Input'           => 'Illuminate\Support\Facades\Input',
@@ -162,12 +164,15 @@ return array(
 		'Log'             => 'Illuminate\Support\Facades\Log',
 		'Mail'            => 'Illuminate\Support\Facades\Mail',
 		'Paginator'       => 'Illuminate\Support\Facades\Paginator',
+		'Password'        => 'Illuminate\Support\Facades\Password',
+		'Queue'           => 'Illuminate\Support\Facades\Queue',
 		'Redirect'        => 'Illuminate\Support\Facades\Redirect',
 		'Redis'           => 'Illuminate\Support\Facades\Redis',
 		'Request'         => 'Illuminate\Support\Facades\Request',
 		'Response'        => 'Illuminate\Support\Facades\Response',
 		'Route'           => 'Illuminate\Support\Facades\Route',
 		'Schema'          => 'Illuminate\Support\Facades\Schema',
+		'Seeder'          => 'Illuminate\Database\Seeder',
 		'Session'         => 'Illuminate\Support\Facades\Session',
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',

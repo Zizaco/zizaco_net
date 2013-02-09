@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return Redirect::action('PostsController@index'); 
+    return Redirect::action('PostsController@index'); 
 });
 
 Route::get('admin', function()

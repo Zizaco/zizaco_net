@@ -33,14 +33,6 @@ App::after(function($request, $response)
 |
 */
 
-//Route::filter('auth', function()
-//{
-//	if (! Entrust::hasRole('Owner'))
-//        return Redirect::action('UserController@login');
-//});
-//
-//Route::when('admin*', 'auth');
-
 Entrust::routeNeedsRole( 'admin*', 'Owner' );
 
 /*
