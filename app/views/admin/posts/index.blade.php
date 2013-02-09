@@ -1,6 +1,6 @@
 @section ('content')
     <p>
-        <a href='{{ URL::action( 'Admin\PostsController@create' ) }}' class='btn btn-primary'>
+        <a href='{{{ URL::action( 'Admin\PostsController@create' ) }}}' class='btn btn-primary'>
             Novo Post
         </a>
     </p>
@@ -17,14 +17,14 @@
             @foreach ( $posts as $post )
                 <tr>
                     <td>
-                        {{ HTML::action( 'Admin\PostsController@edit', $post->title, ['id'=>$post->id] ) }}
+                        {{{ HTML::action( 'Admin\PostsController@edit', $post->title, ['id'=>$post->id] ) }}}
                     </td>
-                    <td>{{ $post->author->username }}</td>
-                    <td>{{ $post->created_at }}</td>
+                    <td>{{{ $post->author->username }}}</td>
+                    <td>{{{ $post->created_at }}}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    {{ $posts->links() }}
+    {{{ $posts->links() }}}
 @stop

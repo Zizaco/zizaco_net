@@ -1,3 +1,3 @@
 @section ('content')
-    {{ Confide::makeForgetPasswordForm()->render(); }}
+    {{{ Confide::makeForgetPasswordForm()->render() }}}
 @stop

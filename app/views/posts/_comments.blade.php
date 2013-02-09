@@ -4,22 +4,22 @@
         <h2>Comentários</h2>
         @foreach ( $post->comments as $c )
             <div class="comment">
-                {{ HTML::image( $c->authorGravatar() ) }}
+                {{{ HTML::image( $c->authorGravatar() ) }}}
 
                 <span class='date'>
-                    {{ $c->postedAt() }}
+                    {{{ $c->postedAt() }}}
                 </span>
 
                 <span class='name'>
                     @if ( $c->website )
-                        {{ HTML::to( $c->website, $c->name ) }}
+                        {{{ HTML::to( $c->website, $c->name ) }}}
                     @else
-                        {{ $c->name }}
+                        {{{ $c->name }}}
                     @endif
                 </span>
 
                 <p>
-                    {{ str_replace("\n", '<br>', $c->content) }}
+                    {{{ str_replace("\n", '<br>', $c->content) }}}
                 </p>
             </div>
         @endforeach

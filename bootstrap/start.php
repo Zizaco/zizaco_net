@@ -33,7 +33,7 @@ if( isset($_ENV["ENVIRONMENT"]) )
 else
 {
     $env = $app->detectEnvironment(array(
-        'local' => array('local'),
+        'local' => array('ubuntu'),
     ));
 }
 

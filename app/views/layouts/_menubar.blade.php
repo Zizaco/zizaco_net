@@ -1,6 +1,6 @@
 <div class='menubar'>
-    {{ HTML::action( 'PostsController@index', 'Blog' ) }}
+    {{{ HTML::action( 'PostsController@index', 'Blog' ) }}}
     |
-    {{ $menuitens }}
-    {{ HTML::action( 'PostsController@index', 'Contato' ) }}
+    {{{ $menuitens }}}
+    {{{ HTML::action( 'PostsController@index', 'Contato' ) }}}
 </div>

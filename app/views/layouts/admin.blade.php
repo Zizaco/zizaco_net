@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Zizaco.net</title>
-            {{ Basset::show('admin.css') }}
+            {{{ Basset::show('admin.css') }}}
     </head>
     <body>
 
@@ -17,7 +17,7 @@
 
         @if (Session::get('flash'))
             <div class='alert alert-info flash'>
-                {{ Session::get('flash') }}
+                {{{ Session::get('flash') }}}
             </div>
         @endif
 
@@ -25,7 +25,7 @@
             @yield('content')
         </div>
         
-        {{ Basset::show('js_admin.js') }}
+        {{{ Basset::show('js_admin.js') }}}
         @yield('aditional_js')
     </body>
 </html>

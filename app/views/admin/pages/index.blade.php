@@ -1,6 +1,6 @@
 @section ('content')
     <p>
-        <a href='{{ URL::action( 'Admin\PagesController@create' ) }}' class='btn btn-primary'>
+        <a href='{{{ URL::action( 'Admin\PagesController@create' ) }}}' class='btn btn-primary'>
             Nova Pagina
         </a>
     </p>
@@ -17,14 +17,14 @@
             @foreach ( $pages as $page )
                 <tr>
                     <td>
-                        {{ HTML::action( 'Admin\PagesController@edit', $page->title, ['id'=>$page->id] ) }}
+                        {{{ HTML::action( 'Admin\PagesController@edit', $page->title, ['id'=>$page->id] ) }}}
                     </td>
-                    <td>{{ $page->author->username }}</td>
-                    <td>{{ $page->created_at }}</td>
+                    <td>{{{ $page->author->username }}}</td>
+                    <td>{{{ $page->created_at }}}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    {{ $pages->links() }}
+    {{{ $pages->links() }}}
 @stop

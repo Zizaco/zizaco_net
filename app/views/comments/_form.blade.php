@@ -16,47 +16,47 @@
 ?>
     <fieldset>
         <span class='field'>
-            {{ Form::label('name', 'Nome') }}
-            {{ Form::text('name', array_get( $f,'name') ) }}
+            {{{ Form::label('name', 'Nome') }}}
+            {{{ Form::text('name', array_get( $f,'name') ) }}}
         </span>
 
-        {{ Form::hidden('post_id', $post->id ) }}
+        {{{ Form::hidden('post_id', $post->id ) }}}
 
         <span class='field'>
-            {{ Form::label('email', 'Email') }}
-            {{ Form::text('email', array_get( $f,'email') ) }}
+            {{{ Form::label('email', 'Email') }}}
+            {{{ Form::text('email', array_get( $f,'email') ) }}}
         </span>
 
         <span class='field'>
-            {{ Form::label('website', 'Website') }}
-            {{ Form::text('website', array_get( $f,'website') ) }}
+            {{{ Form::label('website', 'Website') }}}
+            {{{ Form::text('website', array_get( $f,'website') ) }}}
         </span>
 
         <span class='field fullw'>
-            {{ Form::label('content', 'Comentário') }} <br>
-            {{ Form::textarea('content', array_get( $f,'content') ) }}
+            {{{ Form::label('content', 'Comentário') }}} <br>
+            {{{ Form::textarea('content', array_get( $f,'content') ) }}}
         </span>
 
         @if ( Session::get('error') )
             <div class="alert alert-error">
                 @if ( is_array(Session::get('error')) )
-                    {{ Session::get('error')[0] }}
+                    {{{ Session::get('error')[0] }}}
                 @else
-                    {{ Session::get('error') }}
+                    {{{ Session::get('error') }}}
                 @endif
             </div>
         @endif
 
         <div class='form-actions'>
 
-            {{ Form::button('Enviar comentário', ['type'=>'submit', 'class'=>'btn btn-primary'] ) }}
+            {{{ Form::button('Enviar comentário', ['type'=>'submit', 'class'=>'btn btn-primary'] ) }}}
 
             @if ( isset($comment) )
-                {{ HTML::action( 'Admin\CommentsController@destroy', 'Excluir', ['id'=>$comment->id], ['data-method'=>'delete', 'class'=>'btn btn-danger'] ) }}
+                {{{ HTML::action( 'Admin\CommentsController@destroy', 'Excluir', ['id'=>$comment->id], ['data-method'=>'delete', 'class'=>'btn btn-danger'] ) }}}
 
-                {{ HTML::action( 'Admin\CommentsController@index', 'Cancelar', [], ['class'=>'btn'] ) }}
+                {{{ HTML::action( 'Admin\CommentsController@index', 'Cancelar', [], ['class'=>'btn'] ) }}}
             @endif
 
         </div>
     </fieldset>
-{{ Form::close() }}
+{{{ Form::close() }}}

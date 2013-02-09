@@ -1,3 +1,3 @@
 @section ('content')
-    {{ Confide::makeLoginForm()->render(); }}
+    {{{ Confide::makeLoginForm()->render() }}}
 @stop
