@@ -3,6 +3,7 @@
 		"php": ">=5.4.0",
 		"laravel/framework": "4.0.*",
 		"zizaco/confide": "dev-master",
+		"zizaco/entrust": "dev-master",
 		"zizaco/lessy": "dev-master",
 		"zizaco/factory-muff": "dev-master",
 		"meido/html": "1.1.*",

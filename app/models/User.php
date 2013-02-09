@@ -1,8 +1,10 @@
 <?php
 
 use Zizaco\Confide\ConfideUser;
+use Zizaco\Entrust\HasRole;
 
 class User extends ConfideUser {
+    use HasRole;
 
     // Array used in FactoryMuff
     public static $factory = array(
