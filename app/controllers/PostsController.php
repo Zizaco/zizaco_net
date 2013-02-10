@@ -35,7 +35,7 @@ class PostsController extends BaseController {
 
 		if(! $post)
 		{
-			return Redirect::to('/');
+			return Redirect::action('PostsController@index');
 		}
 
 		$this->layout->content = View::make('posts.show')

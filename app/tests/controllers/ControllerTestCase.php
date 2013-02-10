@@ -25,10 +25,36 @@ class ControllerTestCase extends TestCase{
     {
         $action_url = URL::action($action, $params);
 
-        if ($action_url == '')
+        if( $action_url == '' )
             $this->assertTrue(false, $action.' does not exist');
 
         return $this->client->request( $method, $action_url );
+    }
+
+    public function assertRequestOk()
+    {
+        $statusCode = $this->client->getResponse()->getStatusCode();
+
+        $this->assertTrue( $this->client->getResponse()->isOk(), 'Request was not Ok, status code was '.$statusCode );
+    }
+
+    public function assertRedirection( $location = null )
+    {
+        $response = $this->client->getResponse();
+        $statusCode = $response->getStatusCode();
+
+        $isRedirection = in_array($statusCode, array(201, 301, 302, 303, 307, 308));
+
+        $this->assertTrue( $isRedirection, "Last request was not a redirection. Status code was ".$statusCode );
+        
+        if( $location )
+        {
+            if(! strpos( $location, '://' ))
+                $location = 'http://:/'.$location;
+
+            $this->assertEquals( $location, $response->headers->get('Location'), 'Page was not redirected to the correct place' );
+        }
+            
     }
 
 }

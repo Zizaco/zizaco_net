@@ -6,7 +6,7 @@ class PostsControllerTest extends ControllerTestCase{
     {
         $this->requestAction('GET', 'PostsController@index');
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->assertRequestOk();
     }
 
     public function test_should_show()
@@ -15,7 +15,7 @@ class PostsControllerTest extends ControllerTestCase{
 
         $this->requestAction('GET', 'PostsController@show',array('slug'=>$post->slug));
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->assertRequestOk();
     }
 
     public function test_should_redirect_when_show_non_existant()
@@ -23,9 +23,9 @@ class PostsControllerTest extends ControllerTestCase{
         $this->requestAction('GET', 'PostsController@show',array('slug'=>'non-existant'));
 
         // The website index location
-        $location = 'http://:';
+        $location = URL::action('PostsController@index');
 
-        $this->assertTrue($this->client->getResponse()->isRedirect($location));
+        $this->assertRedirection( $location );
     }
 
     private function existentPost()
