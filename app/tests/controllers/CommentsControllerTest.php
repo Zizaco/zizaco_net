@@ -2,7 +2,7 @@
 
 class CommentsControllerTest extends ControllerTestCase {
 
-    function test_should_store()
+    public function test_should_store()
     {
         $page = FactoryMuff::create('Page');
         $input = FactoryMuff::attributesFor('Comment');

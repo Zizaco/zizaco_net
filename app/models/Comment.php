@@ -13,9 +13,9 @@ class Comment extends Ardent
      * Ardent validation rules
      */
     public static $rules = array(
-        'name' => 'required',
+        'name' => 'required|min:3',
         'email' => 'required|email',
-        'content' => 'required',
+        'content' => 'required|min:5',
         'approved' => 'required',
         'post_id' => 'required|numeric',
     );   
