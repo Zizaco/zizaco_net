@@ -32,6 +32,20 @@ class ControllerTestCase extends TestCase{
     }
 
     /**
+     * Set the post parameters and return this for chainable
+     * function call
+     * 
+     * @param array $params Post paratemers array.
+     * @return mixed Value.
+     */
+    public function withInput( $params )
+    {
+        Input::replace( $params );
+
+        return $this;
+    }
+
+    /**
      * Asserts if the request was Ok (200)
      *
      * @return void
