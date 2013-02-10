@@ -81,6 +81,9 @@ class PostsController extends AdminController {
 	{
 		$post = Post::find($id);
 
+		if(! $post)
+			return Redirect::action('Admin\PostsController@index');
+
 		$this->layout->content = \View::make('admin.posts.edit')
 			->with( 'post', $post )
 			->with( 'action', 'Admin\PostsController@update')
