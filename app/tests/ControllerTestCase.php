@@ -2,6 +2,8 @@
 
 class ControllerTestCase extends TestCase{
     
+    protected $requestInput = array();
+
     /**
      * Set session
      */
@@ -28,7 +30,7 @@ class ControllerTestCase extends TestCase{
         if( $action_url == '' )
             $this->assertTrue(false, $action.' does not exist');
 
-        return $this->client->request( $method, $action_url );
+        return $this->client->request( $method, $action_url, array_merge($params, $this->requestInput) );
     }
 
     /**
@@ -40,7 +42,7 @@ class ControllerTestCase extends TestCase{
      */
     public function withInput( $params )
     {
-        Input::replace( $params );
+        $this->requestInput = $params;
 
         return $this;
     }
