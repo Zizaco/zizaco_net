@@ -13,6 +13,9 @@ class PagesController extends BaseController {
 
 		$page = Page::where('slug','=',$slug)->first();
 
+		if(! $page)
+			return Redirect::action('PostsController@index');
+
 		$this->layout->content = View::make('pages.show')
 			->with( 'page', $page );
 	}

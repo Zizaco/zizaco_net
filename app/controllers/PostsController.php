@@ -34,9 +34,7 @@ class PostsController extends BaseController {
 			->first();
 
 		if(! $post)
-		{
 			return Redirect::action('PostsController@index');
-		}
 
 		$this->layout->content = View::make('posts.show')
 			->with( 'post', $post );
