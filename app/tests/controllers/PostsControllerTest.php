@@ -1,6 +1,6 @@
 <?php
 
-class PostsControllerTest extends ControllerTestCase{
+class PostsControllerTest extends ControllerTestCase {
 
     public function test_should_index()
     {

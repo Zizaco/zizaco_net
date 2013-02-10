@@ -1,6 +1,6 @@
 <?php
 
-class PagesControllerTest extends ControllerTestCase{
+class PagesControllerTest extends ControllerTestCase {
 
     public function test_should_show()
     {
