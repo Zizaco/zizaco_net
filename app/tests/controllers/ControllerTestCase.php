@@ -31,11 +31,22 @@ class ControllerTestCase extends TestCase{
         return $this->client->request( $method, $action_url );
     }
 
+    /**
+     * Asserts if the request was Ok (200)
+     *
+     * @return void
+     */
     public function assertRequestOk()
     {
         $this->assertStatusCode( 200 );
     }
 
+    /**
+     * Asserts if the status code is correct
+     *
+     * @param $code Correct status code
+     * @return void
+     */
     public function assertStatusCode( $code )
     {
         $realCode = $this->client->getResponse()->getStatusCode();
@@ -43,6 +54,12 @@ class ControllerTestCase extends TestCase{
         $this->assertEquals( $code, $realCode, "Request was not $code, status code was $realCode" );
     }
 
+    /**
+     * Asserts if page was redirected correctly
+     *
+     * @param $location Location where it should be redirected
+     * @return void
+     */
     public function assertRedirection( $location = null )
     {
         $response = $this->client->getResponse();
