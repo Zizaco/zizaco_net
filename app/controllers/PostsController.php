@@ -33,6 +33,11 @@ class PostsController extends BaseController {
 			->where('slug','=',$slug)
 			->first();
 
+		if(! $post)
+		{
+			return Redirect::to('/');
+		}
+
 		$this->layout->content = View::make('posts.show')
 			->with( 'post', $post );
 	}
