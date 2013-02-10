@@ -22,7 +22,7 @@ class UserControllerTest extends ControllerTestCase {
 
     public function test_should_not_do_login_when_wrong()
     {
-        $credentials = array('email'=>$user->email, 'password'=>'wrong');
+        $credentials = array('email'=>'someone@somewhere.com', 'password'=>'wrong');
 
         $this->withInput( $credentials )
             ->requestAction('POST', 'UserController@do_login');
