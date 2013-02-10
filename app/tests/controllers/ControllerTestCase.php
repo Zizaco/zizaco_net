@@ -33,9 +33,14 @@ class ControllerTestCase extends TestCase{
 
     public function assertRequestOk()
     {
-        $statusCode = $this->client->getResponse()->getStatusCode();
+        $this->assertStatusCode( 200 );
+    }
 
-        $this->assertTrue( $this->client->getResponse()->isOk(), 'Request was not Ok, status code was '.$statusCode );
+    public function assertStatusCode( $code )
+    {
+        $realCode = $this->client->getResponse()->getStatusCode();
+
+        $this->assertEquals( $code, $realCode, "Request was not $code, status code was $realCode" );
     }
 
     public function assertRedirection( $location = null )
