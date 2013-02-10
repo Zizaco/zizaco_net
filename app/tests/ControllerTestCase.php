@@ -23,8 +23,7 @@ class ControllerTestCase extends TestCase{
      * 
      * @param string $method
      * @param string $action
-     *
-     * @return Symfony\Component\DomCrawler\Crawler
+     * @return mixed this.
      */
     public function requestAction( $method, $action, $params = array())
     {
@@ -33,15 +32,18 @@ class ControllerTestCase extends TestCase{
         if( $action_url == '' )
             $this->assertTrue(false, $action.' does not exist');
 
-        return $this->client->request( $method, $action_url, array_merge($params, $this->requestInput) );
+        $this->client->request( $method, $action_url, array_merge($params, $this->requestInput) );
+
+        // for chainable method call
+        return $this;
     }
 
     /**
      * Set the post parameters and return this for chainable
-     * function call
+     * method call
      * 
      * @param array $params Post paratemers array.
-     * @return mixed Value.
+     * @return mixed this.
      */
     public function withInput( $params )
     {
