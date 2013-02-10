@@ -33,7 +33,7 @@ App::after(function($request, $response)
 |
 */
 
-Entrust::routeNeedsRole( 'admin*', 'Owner' );
+Entrust::routeNeedsRole( 'admin*', 'Owner', Redirect::to('/') );
 
 /*
 |--------------------------------------------------------------------------

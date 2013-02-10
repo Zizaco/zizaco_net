@@ -13,6 +13,9 @@ class ControllerTestCase extends TestCase{
 
         // Set session
         Input::setSessionStore(app()['session']);
+
+        // Enable filters
+        Route::enableFilters();
     }
 
     /**

@@ -22,8 +22,6 @@ class UserControllerTest extends ControllerTestCase {
 
     public function test_should_not_do_login_when_wrong()
     {
-        $user = FactoryMuff::create('User', array('password'=>'123123'));
-
         $credentials = array('email'=>$user->email, 'password'=>'wrong');
 
         $this->withInput( $credentials )

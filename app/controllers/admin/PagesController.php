@@ -80,6 +80,9 @@ class PagesController extends AdminController {
 	{
 		$page = Page::find($id);
 
+		if(! $page)
+			return Redirect::action('Admin\PagesController@index');
+
 		$this->layout->content = \View::make('admin.pages.edit')
 			->with( 'page', $page )
 			->with( 'action', 'Admin\PagesController@update')
