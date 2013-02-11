@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.postmarkapp.com',
+	'host' => getenv("SMTP_SERVER"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'port' => 2525,
+	'port' => getenv("SMTP_PORT"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'contact@zizaco.net', 'name' => 'Zizaco.net'),
+	'from' => array('address' => 'zizaco@gmail.com', 'name' => 'Zizaco.net'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => getenv("SMTP_USER"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,6 +78,6 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => getenv("SMTP_PASSWORD"),
 
 );
