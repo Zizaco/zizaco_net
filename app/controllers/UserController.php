@@ -60,6 +60,11 @@ class UserController extends Admin\AdminController {
      */
     public function login()
     {
+        if( Entrust::hasRole('Owner') )
+        {
+            return Redirect::action('Admin\PostsController@index');
+        }
+
         $this->layout->content = View::make('users.login');
     }
 
