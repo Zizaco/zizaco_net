@@ -1,3 +1,6 @@
+.image-replacement {
+  text-indent: -9999px !important;
+}
 body {
   margin: 0;
   font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -176,4 +179,39 @@ code {
   margin-left: 2px;
   color: #fff;
   margin-bottom: 10px;
+}
+.footer {
+  margin-top: 60px;
+  border-top: solid 3px #3fa757;
+  background-image: url('../../img/layout/bg_pattern_dark.png');
+  background-color: #252525;
+  min-height: 150px;
+  color: #DDD;
+}
+.footer .content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 40px;
+  position: relative;
+}
+.footer .content a.forkme {
+  background-image: url('../../img/layout/forkme.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 141px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  text-indent: -9999px !important;
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+.footer .content a.forkme:hover {
+  background-color: transparent;
+  background-position: 0px -20px;
+  opacity: 0.8;
 }

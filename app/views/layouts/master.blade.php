@@ -16,6 +16,17 @@
 
             @yield('content')
         </div>
+
+        <div class='footer'>
+            <div class='content'>
+                By Zizaco - 
+                Powered by {{{ HTML::to('http://laravel.com', 'Laravel 4') }}}
+                {{{ HTML::to(
+                    'https://github.com/Zizaco/zizaco_net',
+                    'Fork me at Github',['class'=>'forkme']
+                ) }}}
+            </div>
+        </div>
         
         {{{ Basset::show('js_website.js') }}}
         @yield('aditional_js')

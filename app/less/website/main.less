@@ -5,15 +5,27 @@
 // Variables
 @layout-url: "../../img/layout";
 
+// Hides the text within element
+.image-replacement{
+    text-indent: -9999px !important;
+}
+
 // Border radius with vendors
 .border-radius (@a, @a, @a, @a) {
     border-radius: @arguments;
     -moz-border-radius: @arguments;
     -webkit-border-radius: @arguments;
 }
-
 .border-radius (@a) {
     .border-radius(@a,@a,@a,@a);
+}
+
+// Transition
+.transition (@time) {
+  transition: all @time;
+  -moz-transition: all @time;
+  -webkit-transition: all @time;
+  -o-transition: all @time;
 }
 
 /**
@@ -221,6 +233,42 @@ code{
       margin-left: 2px;
       color: #fff;
       margin-bottom: 10px;
+    }
+  }
+}
+
+.footer{
+  margin-top: 60px;
+  border-top: solid 3px #3fa757;
+  background-image: url('@{layout-url}/bg_pattern_dark.png');
+  background-color: #252525;
+  min-height: 150px;
+  color: #DDD;
+
+  .content{
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 40px;
+    position: relative;
+
+    a.forkme{
+      background-image: url('@{layout-url}/forkme.png');
+      background-position: bottom;
+      background-repeat: no-repeat;
+      width: 75px;
+      height: 141px;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      cursor: pointer;
+      .image-replacement;
+      .transition(0.2s);
+      
+      &:hover{
+        background-color: transparent;
+        background-position: 0px -20px;
+        opacity: 0.8;
+      }
     }
   }
 }
