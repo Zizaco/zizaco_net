@@ -64,7 +64,7 @@ class Page extends Ardent {
     /**
      * Forget cache when saved
      */
-    public function afterSave( $success )
+    public function afterSave( $success, $forced = false )
     {
         if( Cache::get('pages_for_menu') )
             Cache::forget('pages_for_menu');

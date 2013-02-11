@@ -9,7 +9,7 @@
 		"meido/html": "1.1.*",
 		"meido/form": "1.1.*",
 		"jasonlewis/basset": "dev-master",
-		"laravelbook/ardent": "1.*",
+		"laravelbook/ardent": "dev-master",
 		"dflydev/markdown": "1.0.*@dev"
 	},
 	"autoload": {
