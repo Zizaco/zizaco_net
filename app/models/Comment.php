@@ -81,16 +81,13 @@ class Comment extends Ardent
         if( $success )
         {
             $owner_role = Role::where('name','=','Owner')->first();
-            $emails = '';
+            $emails = array();
 
             if( ! $owner_role )
                 return;
 
             foreach ($owner_role->users as $user) {
-                if($emails != '')
-                    $emails .= ', ';
-
-                $emails .= $user->email;
+                $emails[] = $user->email;
             }
 
             MailRepository::send(

@@ -26,19 +26,22 @@ class MailRepository {
      */
     public function send( $destination, $subject, $view, $params = array() )
     {
-        $this->sent[] = array(
-            'destination'=>$destination,
-            'subject'=>$subject,
-            'content'=>View::make($view, $params)->render()
-        );
+        foreach( (array)$destination as $address ) {
 
-        if(Config::getEnvironment() == 'testing')
-            return;
+            $this->sent[] = array(
+                'destination'=>$address,
+                'subject'=>$subject,
+                'content'=>View::make($view, $params)->render()
+            );
 
-        Mail::send($view, $params, function($m) use ($destination, $subject){
-            $m->to( $destination )
-                ->subject( $subject );
-        });
+            if(Config::getEnvironment() == 'testing')
+                return;
+
+            Mail::send($view, $params, function($m) use ($address, $subject){
+                $m->to( $address )
+                    ->subject( $subject );
+            });
+        }
     }
 
     /**

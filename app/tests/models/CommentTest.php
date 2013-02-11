@@ -2,7 +2,7 @@
 
 class CommentTest extends TestCase
 {
-    
+
     public function test_get_gravatar()
     {
         $comment = FactoryMuff::create('Comment');
@@ -16,7 +16,9 @@ class CommentTest extends TestCase
 
         $comment = FactoryMuff::create('Comment');
 
-        $this->assertEquals(MailRepository::lastSent()['destination'], $owner_user->email);
+        $sent_email = MailRepository::lastSent();
+
+        $this->assertEquals( $sent_email['destination'], $owner_user->email );
     }
 
     public function test_posted_at()
