@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'host' => getenv("SMTP_SERVER"),
+	'host' => getenv("SMTP_SERVER") ?: 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------

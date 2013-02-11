@@ -28,19 +28,28 @@ class MailRepository {
     {
         foreach( (array)$destination as $address ) {
 
-            $this->sent[] = array(
-                'destination'=>$address,
-                'subject'=>$subject,
-                'content'=>View::make($view, $params)->render()
-            );
-
             if(Config::getEnvironment() == 'testing')
-                return;
-
-            Mail::send($view, $params, function($m) use ($address, $subject){
-                $m->to( $address )
-                    ->subject( $subject );
-            });
+            {
+                $this->sent[] = array(
+                    'destination'=>$address,
+                    'subject'=>$subject,
+                    'content'=>View::make($view, $params)->render()
+                );
+            }
+            else
+            {
+                try{
+                    Mail::send($view, $params, function($m) use ($address, $subject){
+                        $m->to( $address )
+                            ->subject( $subject );
+                    });
+                }catch(Swift_SwiftException $e){
+                    Log::error(
+                        'Unable to send mail: '.$e->getMessage().
+                        "\n".$e->getCode()."\n".$e->getTraceAsString()
+                    );
+                }
+            }
         }
     }
 
