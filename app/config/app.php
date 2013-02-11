@@ -179,11 +179,12 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Confide'         => 'Zizaco\Confide\ConfideFacade',
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
-		'Markdown'		  => 'Zizaco\LaravelMd\Markdown',
-		'Form' 	          => 'Meido\Form\FormFacade',
-		'HTML' 	          => 'Meido\HTML\HTMLFacade',
+		'Form'            => 'Meido\Form\FormFacade',
+		'HTML'            => 'Meido\HTML\HTMLFacade',
 		'Basset'          => 'Basset\Facades\Basset',
 		'FactoryMuff'     => 'Zizaco\FactoryMuff\Facade\FactoryMuff',
+		'Markdown'        => 'Zizaco\LaravelMd\Markdown',
+		'MailRepository'  => 'Zizaco\MailRepository\Facade',
 
 	),
 

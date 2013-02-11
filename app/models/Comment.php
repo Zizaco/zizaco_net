@@ -87,13 +87,18 @@ class Comment extends Ardent
                 return;
 
             foreach ($owner_role->users as $user) {
-                $emails .= $user->email.',';
+                if($emails != '')
+                    $emails .= ', ';
+
+                $emails .= $user->email;
             }
 
-            Mail::send('emails.new_comment', ['comment'=>$this, 'post'=>$this->post], function($m){
-                $m->to( $this->email )
-                    ->subject( 'Novo comentário: '.$this->post->title );
-            });
+            MailRepository::send(
+                $emails,
+                'Novo comentário: '.$this->post->title,
+                'emails.new_comment',
+                ['comment'=>$this, 'post'=>$this->post]
+            );
         }
     }
 }
