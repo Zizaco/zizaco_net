@@ -72,4 +72,28 @@ class Comment extends Ardent
 
         return $date_obj->format('d/m/Y');
     }
+
+    /**
+     * Send email notification
+     */
+    public function afterSave( $success, $forced = false )
+    {
+        if( $success )
+        {
+            $owner_role = Role::where('name','=','Owner')->first();
+            $emails = '';
+
+            if( ! $owner_role )
+                return;
+
+            foreach ($owner_role->users as $user) {
+                $emails .= $user->email.',';
+            }
+
+            Mail::send('emails.new_comment', ['comment'=>$this, 'post'=>$this->post], function($m){
+                $m->to( $this->email )
+                    ->subject( 'Novo comentário: '.$this->post->title );
+            });
+        }
+    }
 }
