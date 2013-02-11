@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'host' => getenv("SMTP_SERVER") ?: 'smtp.gmail.com',
+	'host' => getenv("WEBAPP_SMTP_SERVER") ?: 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'port' => getenv("SMTP_PORT"),
+	'port' => getenv("WEBAPP_SMTP_PORT"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'username' => getenv("SMTP_USER"),
+	'username' => getenv("WEBAPP_SMTP_USER"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,6 +78,6 @@ return array(
 	|
 	*/
 
-	'password' => getenv("SMTP_PASSWORD"),
+	'password' => getenv("WEBAPP_SMTP_PASSWORD"),
 
 );

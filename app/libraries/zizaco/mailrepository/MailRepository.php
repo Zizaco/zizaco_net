@@ -15,7 +15,7 @@ class MailRepository {
     protected $sent = array();
 
     /**
-     * Send an email and save it to the MailRepository
+     * Send an email or save it to the MailRepository
      * sent array
      * 
      * @param string $destination
@@ -43,7 +43,7 @@ class MailRepository {
                         $m->to( $address )
                             ->subject( $subject );
                     });
-                }catch(Swift_SwiftException $e){
+                }catch(Exception $e){
                     Log::error(
                         'Unable to send mail: '.$e->getMessage().
                         "\n".$e->getCode()."\n".$e->getTraceAsString()
