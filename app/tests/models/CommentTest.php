@@ -1,14 +1,8 @@
 <?php
 
-use Mockery as m;
-
 class CommentTest extends TestCase
 {
-    public function tearDown()
-    {
-        m::close();
-    }
-
+    
     public function test_get_gravatar()
     {
         $comment = FactoryMuff::create('Comment');
