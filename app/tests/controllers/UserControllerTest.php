@@ -1,6 +1,7 @@
 <?php
 
 class UserControllerTest extends ControllerTestCase {
+    use TestHelper;
     
     public function test_should_login()
     {
@@ -30,30 +31,13 @@ class UserControllerTest extends ControllerTestCase {
         $this->assertRedirection( URL::action('Admin\PostsController@login') );
     }
 
-    public function test_should_redirect_logged_login()
+    public function test_login_should_redirect_owner()
     {
         $this->owner();
 
         $this->requestAction('GET', 'UserController@login');
 
         $this->assertRedirection( URL::action('Admin\PostsController@index') );
-    }
-
-    /**
-     * Returns a logged user with the Owner role
-     *
-     * @return User
-     */
-    private function owner()
-    {
-        $user = FactoryMuff::create('User');
-        $owner_role = FactoryMuff::create('Role', array('name'=>'Owner'));
-
-        $user->attachRole( $owner_role );
-
-        Auth::login( $user );
-
-        return $user;
     }
 
 }

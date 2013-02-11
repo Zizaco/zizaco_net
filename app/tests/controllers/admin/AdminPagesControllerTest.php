@@ -1,6 +1,7 @@
 <?php
 
 class AdminPagesControllerTest extends ControllerTestCase {
+    use TestHelper;
 
     public function test_should_be_filtered_when_not_owner()
     {
@@ -99,23 +100,6 @@ class AdminPagesControllerTest extends ControllerTestCase {
         
         $this->requestAction('DELETE', 'Admin\PagesController@destroy', array('id'=>$page->id));
         $this->assertRedirection( URL::action('Admin\PagesController@index') );
-    }
-
-    /**
-     * Returns a logged user with the Owner role
-     *
-     * @return User
-     */
-    private function owner()
-    {
-        $user = FactoryMuff::create('User');
-        $owner_role = FactoryMuff::create('Role', array('name'=>'Owner'));
-
-        $user->attachRole( $owner_role );
-
-        Auth::login( $user );
-
-        return $user;
     }
 
     private function existentPage()

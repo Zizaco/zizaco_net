@@ -1,7 +1,7 @@
 <?php
 
-class CommentTest extends TestCase
-{
+class CommentTest extends TestCase {
+    use TestHelper;
 
     public function test_get_gravatar()
     {
@@ -32,20 +32,4 @@ class CommentTest extends TestCase
         $this->assertTrue( $matches );
     }
 
-    /**
-     * Returns a logged user with the Owner role
-     *
-     * @return User
-     */
-    private function owner()
-    {
-        $user = FactoryMuff::create('User');
-        $owner_role = FactoryMuff::create('Role', array('name'=>'Owner'));
-
-        $user->attachRole( $owner_role );
-
-        Auth::login( $user );
-
-        return $user;
-    }
 }
