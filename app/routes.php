@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('admin', function()
 {
-    return Redirect::action('Admin\PostsController@index'); 
+    return Redirect::action('UserController@login'); 
 });
 
 // Posts
