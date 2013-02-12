@@ -18,4 +18,61 @@ class AdminCommentsControllerTest extends ControllerTestCase{
         $this->assertRequestOk();
     }
 
+    public function test_should_edit()
+    {
+        $this->owner();
+
+        $comment = $this->existentComment();
+
+        $this->requestAction(
+            'GET', 'Admin\CommentsController@edit', array('id'=>$comment->id)
+        );
+
+        $this->assertRequestOk();
+    }
+
+    public function test_should_not_edit_non_existant()
+    {
+        $this->owner();
+
+        $this->requestAction(
+            'GET', 'Admin\CommentsController@edit', array('id'=>'999')
+        );
+
+        $this->assertRedirection( URL::action('Admin\CommentsController@index') );
+    }
+
+    public function test_should_update_existant()
+    {
+        $this->owner();
+
+        $comment = $this->existentComment();
+        $input = FactoryMuff::attributesFor('Comment', array('id'=>$comment->id));
+
+        $this->withInput( $input )->requestAction(
+            'PUT', 'Admin\CommentsController@update', array('id'=>$comment->id)
+        );
+
+        $this->assertRedirection( URL::action('Admin\CommentsController@index') );
+    }
+
+    public function test_should_not_update_invalid()
+    {
+        $this->owner();
+
+        $comment = $this->existentComment();
+        $input = array( 'id'=>$comment->id );
+
+        $this->withInput( $input )->requestAction(
+            'PUT', 'Admin\CommentsController@update', array('id'=>$comment->id)
+        );
+
+        $this->assertRedirection( URL::action('Admin\CommentsController@edit', array('id'=>$comment->id)) );
+    }
+
+    private function existentComment()
+    {
+        return FactoryMuff::create('Comment');
+    }
+
 }
