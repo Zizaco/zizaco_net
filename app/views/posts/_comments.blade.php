@@ -7,19 +7,30 @@
                 {{{ HTML::image( $c->authorGravatar() ) }}}
 
                 <span class='date'>
-                    {{{ $c->postedAt() }}}
+                    {{ $c->postedAt() }}
+
+                    @if ( Entrust::hasRole('Owner') )
+                        {{{ 
+                            HTML::action(
+                                'Admin\CommentsController@edit',
+                                'Editar',
+                                ['id'=>$c->id],
+                                ['class'=>'btn btn-primary']
+                            ) 
+                        }}}
+                    @endif
                 </span>
 
                 <span class='name'>
                     @if ( $c->website )
-                        {{{ HTML::to( $c->website, $c->name ) }}}
+                        {{{ HTML::to( $c->website, e($c->name) ) }}}
                     @else
-                        {{{ $c->name }}}
+                        {{ $c->name }}
                     @endif
                 </span>
 
                 <p>
-                    {{{ str_replace("\n", '<br>', $c->content) }}}
+                    {{{ str_replace("\n", '<br>', e($c->content)) }}}
                 </p>
             </div>
         @endforeach

@@ -22,7 +22,7 @@ class PageTest extends TestCase
         foreach ($pages as $page)
         { 
             // Check if each page slug(url) is present in the menu rendered.
-            $this->assertGreaterThan(0, strpos($result, $page->slug));
+            $this->assertGreaterThan(0, (int) strpos($result, $page->slug));
         }
 
         // Check if cache has been written
