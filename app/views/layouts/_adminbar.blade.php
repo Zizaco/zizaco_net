@@ -11,6 +11,10 @@
             {{{ HTML::action( 'Admin\PagesController@index', 'Paginas' ) }}}
         </li>
 
+        <li {{{ (Request::is('admin/comment*')) ? 'class="active"' : '' }}}>
+            {{{ HTML::action( 'Admin\CommentsController@index', 'Comentários' ) }}}
+        </li>
+
         <li>
             {{{ HTML::action( 'UserController@logout', 'Logout' ) }}}
         </li>

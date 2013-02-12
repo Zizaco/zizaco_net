@@ -42,3 +42,11 @@ textarea[data-editor]:focus {
 .inline label {
   display: inline;
 }
+.table .comment_peek {
+  border-top: none;
+  opacity: 0.7;
+  font-style: italic;
+}
+.table .comment_peek p {
+  margin-left: 20px;
+}

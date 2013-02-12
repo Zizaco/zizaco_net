@@ -52,6 +52,16 @@ Route::get(    'admin/post/{id}/edit', 'Admin\PostsController@edit' );
 Route::put(    'admin/post/{id}',      'Admin\PostsController@update' );
 Route::delete( 'admin/post/{id}',      'Admin\PostsController@destroy' );
 
+// Admin/Comments
+Route::get(    'admin/comments',          'Admin\CommentsController@index' );
+Route::get(    'admin/comment',           'Admin\CommentsController@index' );
+Route::get(    'admin/comment/create',    'Admin\CommentsController@create' );
+Route::post(   'admin/comment',           'Admin\CommentsController@store' );
+Route::get(    'admin/comment/{id}',      'Admin\CommentsController@show' );
+Route::get(    'admin/comment/{id}/edit', 'Admin\CommentsController@edit' );
+Route::put(    'admin/comment/{id}',      'Admin\CommentsController@update' );
+Route::delete( 'admin/comment/{id}',      'Admin\CommentsController@destroy' );
+
 // Confide Routes
 //Route::get(    'user/create',          'UserController@create' );
 //Route::post(   'user',                 'UserController@store' );
