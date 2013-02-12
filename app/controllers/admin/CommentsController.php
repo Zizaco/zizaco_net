@@ -48,4 +48,14 @@ class CommentsController extends AdminController{
         }
     }
 
+    public function destroy($id)
+    {
+        $comment = Comment::find($id);
+
+        $comment->delete();
+
+        return Redirect::action( 'Admin\CommentsController@index' )
+            ->with('flash', 'Comentário excluído com sucesso!');
+    }
+
 }

@@ -70,6 +70,19 @@ class AdminCommentsControllerTest extends ControllerTestCase{
         $this->assertRedirection( URL::action('Admin\CommentsController@edit', array('id'=>$comment->id)) );
     }
 
+    public function test_should_destroy()
+    {
+        $this->owner();
+
+        $comment = $this->existentComment();
+
+        $this->requestAction(
+            'DELETE', 'Admin\CommentsController@destroy', array('id'=>$comment->id)
+        );
+
+        $this->assertRedirection( URL::action('Admin\CommentsController@index') );
+    }
+
     private function existentComment()
     {
         return FactoryMuff::create('Comment');
