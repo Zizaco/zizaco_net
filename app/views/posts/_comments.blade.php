@@ -8,6 +8,17 @@
 
                 <span class='date'>
                     {{ $c->postedAt() }}
+
+                    @if ( Entrust::hasRole('Owner') )
+                        {{{ 
+                            HTML::action(
+                                'Admin\CommentsController@edit',
+                                'Editar',
+                                ['id'=>$c->id],
+                                ['class'=>'btn btn-primary']
+                            ) 
+                        }}}
+                    @endif
                 </span>
 
                 <span class='name'>

@@ -115,10 +115,39 @@ pre{
 }
 
 code{
-    background-color: #EEE;
-    padding: 4px;
-    border-radius: 4px;;
+  background-color: #EEE;
+  padding: 4px;
+  border-radius: 4px;;
 }
+
+.btn{
+  display: inline-block;
+  background-color: #3fa757;
+  border: none;
+  border-bottom: solid 5px #3F9152;
+  color: #fff;
+  padding: 5px;
+  font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover{
+    opacity: 0.8;
+  };
+}
+
+button.btn{
+  
+  &:hover{
+    border-bottom: solid 3px #3F9152;
+    border-top: solid 2px #FFF;
+    opacity: 0.8;
+  };
+}
+
+/**
+  Especific content styling
+**/
 
 .page_content{
 
@@ -210,21 +239,7 @@ code{
     }
 
     .btn{
-      background-color: #3fa757;
-      border: none;
-      border-bottom: solid 5px #3F9152;
-      color: #fff;
-      padding: 5px;
       font-size: 16px;
-      font-family: pt-sans-caption, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: bold;
-      cursor: pointer;
-
-      &:hover{
-        border-bottom: solid 3px #3F9152;
-        border-top: solid 2px #FFF;
-        opacity: 0.8;
-      };
     }
 
     .alert-error{
