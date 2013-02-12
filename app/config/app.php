@@ -114,6 +114,7 @@ return array(
 		'Zizaco\Lessy\LessyServiceProvider',
 		'Meido\Form\FormServiceProvider',
 		'Meido\HTML\HTMLServiceProvider',
+		'Meido\Str\StrServiceProvider',
 		'Basset\BassetServiceProvider',
 
 	),
@@ -181,6 +182,7 @@ return array(
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
 		'Form'            => 'Meido\Form\FormFacade',
 		'HTML'            => 'Meido\HTML\HTMLFacade',
+		'Str'             => 'Meido\Str\StrFacade',
 		'Basset'          => 'Basset\Facades\Basset',
 		'FactoryMuff'     => 'Zizaco\FactoryMuff\Facade\FactoryMuff',
 		'Markdown'        => 'Zizaco\LaravelMd\Markdown',
