@@ -127,4 +127,21 @@ class ControllerTestCase extends TestCase{
         }
 
     }
+
+    /**
+     * Asserts if the session variable is correct
+     * 
+     * @param string $name  Session variable name.
+     * @param mixed $value Session variable value.
+     * @return void.
+     */
+    public function assertSessionHas( $name, $value = null )
+    {
+        $this->assertTrue( Session::has($name), "Session doens't contain '$name'" );
+
+        if( $value )
+        {
+            $this->assertContains( $value, Session::get($name), "Session '$name' are not equal to $value" );
+        }
+    }
 }
