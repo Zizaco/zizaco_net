@@ -2,8 +2,8 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Comment extends Ardent
-{
+class Comment extends Ardent {
+    
     /**
      * Table
      */

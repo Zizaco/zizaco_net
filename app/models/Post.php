@@ -2,8 +2,7 @@
 
 use LaravelBook\Ardent\Ardent;
 
-class Post extends Ardent
-{
+class Post extends Ardent {
 
     /**
      * Table

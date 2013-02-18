@@ -2,8 +2,8 @@
 
 use Zizaco\Entrust\EntrustRole;
 
-class Role extends EntrustRole
-{
+class Role extends EntrustRole {
+    
     // Array used in FactoryMuff
     public static $factory = array(
         'name' => 'string',
