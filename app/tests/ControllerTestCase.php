@@ -1,18 +1,30 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
 class ControllerTestCase extends TestCase{
-    
+
+    /**
+     * Will contain the parameters of the next request
+     *
+     * @var array
+     */
     protected $requestInput = array();
 
     /**
-     * Set session
+     * Will the last HttpException caught
+     *
+     * @var HttpException
+     */
+    protected $lastException;
+
+    /**
+     * Set session and enable Laravel filters
+     *
      */
     public function setUp()
     {
         parent::setUp();
-
-        // Set session
-        Input::setSessionStore(app()['session']);
 
         // Enable filters
         Route::enableFilters();
@@ -23,19 +35,28 @@ class ControllerTestCase extends TestCase{
      * 
      * @param string $method
      * @param string $action
-     * @return mixed this.
+     * @return ControllerTestCase this for method chaining.
      */
     public function requestAction( $method, $action, $params = array())
     {
         $action_url = URL::action($action, $params);
 
         if( $action_url == '' )
-            $this->assertTrue(false, $action.' does not exist');
+            trigger_error("Action '$action' does not exist");
 
-        $this->client->request( $method, $action_url, array_merge($params, $this->requestInput) );
+        try
+        {
+            // The following method returns Synfony's DomCrawler
+            // but it will not be used when testing controllers
+            $this->client->request( $method, $action_url, array_merge($params, $this->requestInput) );
+        }
+        catch(HttpException $e)
+        {
+            // Store the HttpException in order to check it later
+            $this->lastException = $e;
+        }
 
-        // for chainable method call
-        return $this;
+        return $this; // for method chaining
     }
 
     /**
@@ -53,16 +74,6 @@ class ControllerTestCase extends TestCase{
     }
 
     /**
-     * Asserts if the request was Ok (200)
-     *
-     * @return void
-     */
-    public function assertRequestOk()
-    {
-        $this->assertStatusCode( 200 );
-    }
-
-    /**
      * Asserts if the status code is correct
      *
      * @param $code Correct status code
@@ -70,9 +81,26 @@ class ControllerTestCase extends TestCase{
      */
     public function assertStatusCode( $code )
     {
-        $realCode = $this->client->getResponse()->getStatusCode();
+        if($this->lastException)
+        {
+            $realCode = $this->lastException->getStatusCode();
+        }
+        else
+        {
+            $realCode = $this->client->getResponse()->getStatusCode();
+        }
 
-        $this->assertEquals( $code, $realCode, "Request was not $code, status code was $realCode" );
+        $this->assertEquals( $code, $realCode, "Response was not $code, status code was $realCode" );
+    }
+
+    /**
+     * Asserts if the request was Ok (200)
+     *
+     * @return void
+     */
+    public function assertRequestOk()
+    {
+        $this->assertStatusCode( 200 );
     }
 
     /**
@@ -89,7 +117,7 @@ class ControllerTestCase extends TestCase{
         $isRedirection = in_array($statusCode, array(201, 301, 302, 303, 307, 308));
 
         $this->assertTrue( $isRedirection, "Last request was not a redirection. Status code was ".$statusCode );
-        
+
         if( $location )
         {
             if(! strpos( $location, '://' ))
@@ -97,7 +125,6 @@ class ControllerTestCase extends TestCase{
 
             $this->assertEquals( $location, $response->headers->get('Location'), 'Page was not redirected to the correct place' );
         }
-            
-    }
 
+    }
 }
