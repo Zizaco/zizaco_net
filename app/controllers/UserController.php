@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Confide Controller Template
@@ -36,21 +35,25 @@ class UserController extends Admin\AdminController {
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.
-        $user->password_confirmation = Input::get( 'password_confirmation' ); 
+        $user->password_confirmation = Input::get( 'password_confirmation' );
 
-        // Save if valid
-        if ( $user->save() )
+        // Save if valid. Password field will be hashed before save
+        $user->save();
+
+        if ( $user->id )
         {
-            return Redirect::action('UserController@login');
+            // Redirect with success message, You may replace "Lang::get(..." for your custom message.
+                        return Redirect::action('UserController@login')
+                            ->with( 'notice', Lang::get('confide::confide.alerts.account_created') );
         }
         else
         {
             // Get validation errors (see Ardent package)
             $error = $user->getErrors()->all();
 
-            return Redirect::action('UserController@create')
-                ->withInput(Input::except('password'))
-                ->with( 'error', $error );
+                        return Redirect::action('UserController@create')
+                            ->withInput(Input::except('password'))
+                            ->with( 'error', $error );
         }
     }
 
@@ -75,18 +78,30 @@ class UserController extends Admin\AdminController {
     public function do_login()
     {
         $input = array(
-            'email' => Input::get( 'email' ),
+            'email'    => Input::get( 'email' ), // May be the username too
             'password' => Input::get( 'password' ),
             'remamber' => Input::get( 'remember' ),
         );
 
+        // If you wish to only allow login from confirmed users, call logAttempt
+        // with the second parameter as true.
+        // logAttempt will check if the 'email' perhaps is the username.
         if ( Confide::logAttempt( $input ) ) 
         {
             return Redirect::action('Admin\PostsController@index');
         }
         else
         {
-            $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
+            // Check if there was too many login attempts
+            if( Confide::isThrottled( $input ) )
+            {
+                $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
+            }
+            else
+            {
+                $err_msg = Lang::get('confide::confide.alerts.wrong_credentials');
+            }
+
             return Redirect::action('UserController@login')
                 ->withInput(Input::except('password'))
                 ->with( 'error', $err_msg );
@@ -124,12 +139,49 @@ class UserController extends Admin\AdminController {
     }
 
     /**
-     * Attempt to reset password with given email
+     * Attempt to send change password link to the given email
      *
      */
-    public function reset_password()
+    public function do_forgot_password()
     {
-        if( Confide::resetPassword( Input::get( 'email' ) ) )
+        if( Confide::forgotPassword( Input::get( 'email' ) ) )
+        {
+            $notice_msg = Lang::get('confide::confide.alerts.password_forgot');
+            return Redirect::action('UserController@login')
+                ->with( 'notice', $notice_msg );
+        }
+        else
+        {
+            $error_msg = Lang::get('confide::confide.alerts.wrong_password_forgot');
+            return Redirect::action('UserController@forgot_password')
+                ->withInput()
+                ->with( 'error', $error_msg );
+        }
+    }
+
+    /**
+     * Shows the change password form with the given token
+     *
+     */
+    public function reset_password( $token )
+    {
+        return Confide::makeResetPasswordForm( $token );
+    }
+
+    /**
+     * Attempt change password of the user
+     *
+     */
+    public function do_reset_password()
+    {
+        $input = array(
+            'token'=>Input::get( 'token' ),
+            'password'=>Input::get( 'password' ),
+            'password_confirmation'=>Input::get( 'password_confirmation' ),
+        );
+
+        // By passing an array with the token, password and confirmation
+        if( Confide::resetPassword( $input ) )
         {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
             return Redirect::action('UserController@login')
@@ -138,14 +190,14 @@ class UserController extends Admin\AdminController {
         else
         {
             $error_msg = Lang::get('confide::confide.alerts.wrong_password_reset');
-            return Redirect::action('UserController@forgot_password')
+            return Redirect::action('UserController@reset_password', array('token'=>$input['token']))
                 ->withInput()
                 ->with( 'error', $error_msg );
         }
     }
 
     /**
-     * Sign out action.
+     * Log the user out of the application.
      *
      */
     public function logout()
