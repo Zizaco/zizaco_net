@@ -1,3 +1,12 @@
+
+// Transition
+.transition (@time) {
+  transition: all @time;
+  -moz-transition: all @time;
+  -webkit-transition: all @time;
+  -o-transition: all @time;
+}
+
 .prettyprint
 {
     overflow:auto;
@@ -5,6 +14,7 @@
     background-color:#222;
     font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     padding: 10px;
+    cursor:text;
 
     ol
     {
@@ -25,44 +35,52 @@
         padding:0;
     }
 
-    .com
-    {
-      color: #555;
+    span{
+        color: #AAA;
+        .transition(0.2s);
     }
 
-    .lit
-    {
-      color: #17CFB6;
-    }
+    &:hover{
 
-    .pun, .opn, .clo
-    {
-      color: #93a1a1;
-    }
+        .com
+        {
+          color: #555;
+        }
 
-    .fun
-    {
-      color: #dc322f;
-    }
+        .lit
+        {
+          color: #17CFB6;
+        }
 
-    .str, .atv
-    {
-      color: #E3B446;
-    }
+        .pun, .opn, .clo
+        {
+          color: #93a1a1;
+        }
 
-    .kwd, .linenums .tag
-    {
-      color: #DB613B;
-    }
+        .fun
+        {
+          color: #dc322f;
+        }
 
-    .typ, .atn, .dec, .var
-    {
-      color: #fff;
-    }
+        .str, .atv
+        {
+          color: #E3B446;
+        }
 
-    .pln
-    {
-      color: #ccc;
+        .kwd, .linenums .tag
+        {
+          color: #DB613B;
+        }
+
+        .typ, .atn, .dec, .var
+        {
+          color: #fff;
+        }
+
+        .pln
+        {
+          color: #ccc;
+        }
     }
 
 }

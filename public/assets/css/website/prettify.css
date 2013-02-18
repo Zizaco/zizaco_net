@@ -4,6 +4,7 @@
   background-color: #222;
   font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   padding: 10px;
+  cursor: text;
 }
 .prettyprint ol {
   color: #777;
@@ -18,34 +19,41 @@
 .prettyprint ol li {
   padding: 0;
 }
-.prettyprint .com {
+.prettyprint span {
+  color: #AAA;
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+.prettyprint:hover .com {
   color: #555;
 }
-.prettyprint .lit {
+.prettyprint:hover .lit {
   color: #17CFB6;
 }
-.prettyprint .pun,
-.prettyprint .opn,
-.prettyprint .clo {
+.prettyprint:hover .pun,
+.prettyprint:hover .opn,
+.prettyprint:hover .clo {
   color: #93a1a1;
 }
-.prettyprint .fun {
+.prettyprint:hover .fun {
   color: #dc322f;
 }
-.prettyprint .str,
-.prettyprint .atv {
+.prettyprint:hover .str,
+.prettyprint:hover .atv {
   color: #E3B446;
 }
-.prettyprint .kwd,
-.prettyprint .linenums .tag {
+.prettyprint:hover .kwd,
+.prettyprint:hover .linenums .tag {
   color: #DB613B;
 }
-.prettyprint .typ,
-.prettyprint .atn,
-.prettyprint .dec,
-.prettyprint .var {
+.prettyprint:hover .typ,
+.prettyprint:hover .atn,
+.prettyprint:hover .dec,
+.prettyprint:hover .var {
   color: #fff;
 }
-.prettyprint .pln {
+.prettyprint:hover .pln {
   color: #ccc;
 }
