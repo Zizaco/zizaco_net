@@ -9,7 +9,14 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		// $this->call('UserTableSeeder');
+        // Clean tables
+        DB::table('pages')->delete();
+        DB::table('posts')->delete();
+        DB::table('comments')->delete();
+
+        // Create initial resources
+		$this->call('UsersTableSeeder');
+        $this->call('RolesTableSeeder');
 	}
 
 }
