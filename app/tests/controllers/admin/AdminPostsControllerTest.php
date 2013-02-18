@@ -40,7 +40,7 @@ class AdminPostsControllerTest extends ControllerTestCase {
     {
         $this->owner();
 
-        $input = FactoryMuff::attributesFor('Post', array('title'=>null));
+        $input = FactoryMuff::attributesFor('Post', array('title'=>''));
         
         $this->withInput($input)->requestAction('POST', 'Admin\PostsController@store');
         $this->assertRedirection( URL::action('Admin\PostsController@create') );

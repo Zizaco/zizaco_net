@@ -40,7 +40,7 @@ class AdminPagesControllerTest extends ControllerTestCase {
     {
         $this->owner();
 
-        $input = FactoryMuff::attributesFor('Page', array('title'=>null));
+        $input = FactoryMuff::attributesFor('Page', array('title'=>''));
         
         $this->withInput($input)->requestAction('POST', 'Admin\PagesController@store');
         $this->assertRedirection( URL::action('Admin\PagesController@create') );

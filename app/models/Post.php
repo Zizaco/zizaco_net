@@ -13,9 +13,9 @@ class Post extends Ardent {
      * Ardent validation rules
      */
     public static $rules = array(
-        'title' => 'required',
-        'slug' => 'required|alpha_dash',
-        'content' => 'required',
+        'title' => 'required|min:4',
+        'slug' => 'required|alpha_dash|min:4',
+        'content' => 'required|min:10',
         'author_id' => 'required|numeric',
     );
 
