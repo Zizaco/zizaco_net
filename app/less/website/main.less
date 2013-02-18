@@ -20,6 +20,14 @@
     .border-radius(@a,@a,@a,@a);
 }
 
+// Transform with vendors
+.transform (@a) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  transform: @arguments;
+}
+
 // Transition
 .transition (@time) {
   transition: all @time;
@@ -57,6 +65,7 @@ small{
 a {
     color: #3fa757;
     text-decoration: none;
+    .transition(0.15s);
 }
 
 a:hover {
@@ -95,6 +104,7 @@ div.menubar{
   color: #444;
   padding: 10px 15px;
   border-radius: 4px;
+  .transition(0.2s);
 
   p{
     color: #999;
@@ -106,6 +116,7 @@ div.menubar{
 
   &:hover{
     background-color: #EEE;
+    .transform( translateX(10px) );
   }
 }
 
