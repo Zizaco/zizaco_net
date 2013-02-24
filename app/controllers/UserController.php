@@ -49,7 +49,7 @@ class UserController extends Admin\AdminController {
         else
         {
             // Get validation errors (see Ardent package)
-            $error = $user->getErrors()->all();
+            $error = $user->errors()->all();
 
                         return Redirect::action('UserController@create')
                             ->withInput(Input::except('password'))

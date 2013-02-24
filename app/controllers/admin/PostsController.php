@@ -54,7 +54,7 @@ class PostsController extends AdminController {
 		else
 		{
 			// Get validation errors (see Ardent package)
-            $error = $post->getErrors()->all();
+            $error = $post->errors()->all();
 
             return Redirect::action('Admin\PostsController@create')
                 ->withInput()
@@ -114,7 +114,7 @@ class PostsController extends AdminController {
 		else
 		{
 			// Get validation errors (see Ardent package)
-            $error = $post->getErrors()->all();
+            $error = $post->errors()->all();
 
             return Redirect::action('Admin\PostsController@edit', ['id'=>$id])
                 ->withInput()

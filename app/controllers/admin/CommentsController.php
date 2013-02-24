@@ -40,7 +40,7 @@ class CommentsController extends AdminController{
         else
         {
             // Get validation errors (see Ardent package)
-            $error = $comment->getErrors()->all();
+            $error = $comment->errors()->all();
 
             return Redirect::action( 'Admin\CommentsController@edit', array('id'=>$comment->id) )
                 ->withInput()

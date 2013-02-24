@@ -53,7 +53,7 @@ class PagesController extends AdminController {
 		else
 		{
 			// Get validation errors (see Ardent package)
-            $error = $page->getErrors()->all();
+            $error = $page->errors()->all();
 
             return Redirect::action('Admin\PagesController@create')
                 ->withInput()
@@ -112,7 +112,7 @@ class PagesController extends AdminController {
 		else
 		{
 			// Get validation errors (see Ardent package)
-            $error = $page->getErrors()->all();
+            $error = $page->errors()->all();
 
             return Redirect::action('Admin\PagesController@edit', ['id'=>$id])
                 ->withInput()

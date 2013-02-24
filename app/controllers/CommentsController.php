@@ -30,7 +30,7 @@ class CommentsController extends BaseController {
 		else
 		{
 			// Get validation errors (see Ardent package)
-            $error = $comment->getErrors()->all();
+            $error = $comment->errors()->all();
 
             return Redirect::to('post/'.$slug.'#comment')
                 ->withInput()
