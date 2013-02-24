@@ -50,6 +50,6 @@ Route::filter('csrf', function()
 {
 	if (Session::getToken() != Input::get('csrf_token'))
 	{
-		throw new Illuminate\Session\TokenMismatchException;
+		App::abort(404);
 	}
 });

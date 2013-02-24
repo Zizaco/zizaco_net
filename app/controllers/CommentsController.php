@@ -2,6 +2,11 @@
 
 class CommentsController extends BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('csrf', array('on' => 'post'));
+	}
+
 	/**
 	 * Store a newly created resource in storage.
 	 *

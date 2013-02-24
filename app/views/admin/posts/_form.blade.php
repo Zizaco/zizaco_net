@@ -5,7 +5,7 @@
         $f = array_merge( Input::old() );
 ?>
 
-<?=
+{{{
     Form::open(
         URL::action(
             isset( $action ) ? $action : 'Admin\PostsController@store',
@@ -13,7 +13,7 @@
         ),
         isset( $method ) ? $method : 'POST' 
     )
-?>
+}}}
     <fieldset>
         {{{ Form::label('title', 'Título') }}}
         {{{ Form::text('title', array_get( $f,'title') ) }}}

@@ -5,7 +5,7 @@
         $f = array_merge( Input::old() );
 ?>
 
-<?=
+{{{
     Form::open(
         URL::action(
             isset( $action ) ? $action : 'CommentsController@update',
@@ -13,7 +13,7 @@
         ),
         isset( $method ) ? $method : 'POST' 
     )
-?>
+}}}
     <fieldset>
         
         {{{ Form::label('name', 'Nome') }}}

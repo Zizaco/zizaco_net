@@ -5,22 +5,27 @@
         $f = array_merge( Input::old() );
 ?>
 
-<?=
+{{{
     Form::open(
-        URL::action(
-            isset( $action ) ? $action : 'CommentsController@store',
-            isset( $comment ) ? ['id'=>$comment->id] : ['slug'=>$post->slug]
-        ),
-        isset( $method ) ? $method : 'POST' 
+        Request::url().'#comment',
+        isset( $method ) ? $method : 'GET',
+        [
+            'data-real-action'=>
+            URL::action(
+                isset( $action ) ? $action : 'CommentsController@store',
+                isset( $comment ) ? ['id'=>$comment->id] : ['slug'=>$post->slug]
+            ),
+        ]
     )
-?>
+}}}
     <fieldset>
+        {{{ Form::hidden('post_id', $post->id ) }}}
+        {{{ Form::hidden('csrf_token', Session::getToken()) }}}
+        
         <span class='field'>
             {{{ Form::label('name', 'Nome') }}}
             {{{ Form::text('name', array_get( $f,'name') ) }}}
         </span>
-
-        {{{ Form::hidden('post_id', $post->id ) }}}
 
         <span class='field'>
             {{{ Form::label('email', 'Email') }}}
