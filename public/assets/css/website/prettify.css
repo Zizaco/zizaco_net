@@ -6,6 +6,12 @@
   padding: 10px;
   cursor: text;
 }
+@media all and (max-width: 768px) {
+  .prettyprint code {
+    min-width: 500px;
+    display: block;
+  }
+}
 .prettyprint ol {
   color: #777;
   padding: 2em 3em 2em 5em;
