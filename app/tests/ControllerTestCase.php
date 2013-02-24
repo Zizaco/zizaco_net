@@ -112,7 +112,15 @@ class ControllerTestCase extends TestCase{
     public function assertRedirection( $location = null )
     {
         $response = $this->client->getResponse();
-        $statusCode = $response->getStatusCode();
+
+        if($this->lastException)
+        {
+            $statusCode = $this->lastException->getStatusCode();
+        }
+        else
+        {
+            $statusCode = $response->getStatusCode();
+        }   
 
         $isRedirection = in_array($statusCode, array(201, 301, 302, 303, 307, 308));
 

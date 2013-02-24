@@ -6,6 +6,8 @@ class CommentsControllerTest extends ControllerTestCase {
     {
         $page = FactoryMuff::create('Page');
         $input = FactoryMuff::attributesFor('Comment');
+        
+        $input['csrf_token'] = Session::getToken();
 
         $this->withInput( $input )->requestAction(
             'POST', 'CommentsController@store', array('slug'=>$page->slug)
