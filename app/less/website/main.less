@@ -66,6 +66,14 @@ a {
     color: #3fa757;
     text-decoration: none;
     .transition(0.15s);
+
+    @media all and (max-width: 768px) {
+      &:nth-of-type(odd) {
+        .post{
+          background-color:#F0F9F2;
+        }
+      }
+    }
 }
 
 a:hover {
@@ -80,14 +88,27 @@ p{
 div.maincontent{
     max-width: 1000px;
     margin: auto;
-    margin-top: 40px;
+    
     padding: 40px;
+
+    @media all and (max-width: 768px) {
+      padding: 10px;
+      padding-top: 10px !important;
+    }
+
+    @media all and (min-width: 769px) {
+      margin-top: 40px;
+    }
 }
 
 div.menubar{
   float:right;
   font-family: pt-sans-narrow, serif;
   font-size: 30px;
+
+  @media all and (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .title{
@@ -104,7 +125,31 @@ div.menubar{
   color: #444;
   padding: 10px 15px;
   border-radius: 4px;
-  .transition(0.2s);
+
+  @media all and (min-width: 769px) {
+    .transition(0.2s);
+
+    &:hover{
+      background-color: #EEE;
+      .transform( translateX(10px) );
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    border-radius: 0px;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    text-shadow: 1px 1px white, -1px -1px rgba(0,0,0,0.1);
+  }
+
+  @media all and (max-width: 256px) {
+    p{
+      display:none;
+    }
+  }
 
   p{
     color: #999;
@@ -112,11 +157,6 @@ div.menubar{
 
   .date{
     float: right;
-  }
-
-  &:hover{
-    background-color: #EEE;
-    .transform( translateX(10px) );
   }
 }
 
@@ -271,11 +311,21 @@ button.btn{
   min-height: 150px;
   color: #DDD;
 
+  @media all and (max-width: 768px) {
+    min-height: 60px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
   .content{
     max-width: 1000px;
     margin: auto;
     padding: 40px 40px;
     position: relative;
+
+    @media all and (max-width: 768px) {
+      padding: 20px 20px;
+    }
 
     a.forkme{
       background-image: url('@{layout-url}/forkme.png');
@@ -289,6 +339,10 @@ button.btn{
       cursor: pointer;
       .image-replacement;
       .transition(0.2s);
+
+      @media all and (max-width: 768px) {
+        display:none;
+      }
       
       &:hover{
         background-color: transparent;

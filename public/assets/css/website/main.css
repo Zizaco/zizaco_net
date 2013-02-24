@@ -33,6 +33,11 @@ a {
   -webkit-transition: all 0.15s;
   -o-transition: all 0.15s;
 }
+@media all and (max-width: 768px) {
+  a:nth-of-type(odd) .post {
+    background-color: #F0F9F2;
+  }
+}
 a:hover {
   background-color: #3fa757;
   color: #fff;
@@ -43,13 +48,28 @@ p {
 div.maincontent {
   max-width: 1000px;
   margin: auto;
-  margin-top: 40px;
   padding: 40px;
+}
+@media all and (max-width: 768px) {
+  div.maincontent {
+    padding: 10px;
+    padding-top: 10px !important;
+  }
+}
+@media all and (min-width: 769px) {
+  div.maincontent {
+    margin-top: 40px;
+  }
 }
 div.menubar {
   float: right;
   font-family: pt-sans-narrow, serif;
   font-size: 30px;
+}
+@media all and (max-width: 768px) {
+  div.menubar {
+    font-size: 20px;
+  }
 }
 .title {
   display: block;
@@ -64,23 +84,41 @@ div.menubar {
   color: #444;
   padding: 10px 15px;
   border-radius: 4px;
-  transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -o-transition: all 0.2s;
+}
+@media all and (min-width: 769px) {
+  .post {
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+  }
+  .post:hover {
+    background-color: #EEE;
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+@media all and (max-width: 768px) {
+  .post {
+    border-radius: 0px;
+    text-shadow: 1px 1px white, -1px -1px rgba(0,0,0,0.1);
+  }
+  .post:hover {
+    opacity: 0.7;
+  }
+}
+@media all and (max-width: 256px) {
+  .post p {
+    display: none;
+  }
 }
 .post p {
   color: #999;
 }
 .post .date {
   float: right;
-}
-.post:hover {
-  background-color: #EEE;
-  -webkit-transform: translateX(10px);
-  -moz-transform: translateX(10px);
-  -o-transform: translateX(10px);
-  transform: translateX(10px);
 }
 pre {
   padding: 4px;
@@ -206,11 +244,23 @@ button.btn:hover {
   min-height: 150px;
   color: #DDD;
 }
+@media all and (max-width: 768px) {
+  .footer {
+    min-height: 60px;
+    text-align: center;
+    margin-top: 30px;
+  }
+}
 .footer .content {
   max-width: 1000px;
   margin: auto;
   padding: 40px 40px;
   position: relative;
+}
+@media all and (max-width: 768px) {
+  .footer .content {
+    padding: 20px 20px;
+  }
 }
 .footer .content a.forkme {
   background-image: url('../../img/layout/forkme.png');
@@ -227,6 +277,11 @@ button.btn:hover {
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
+}
+@media all and (max-width: 768px) {
+  .footer .content a.forkme {
+    display: none;
+  }
 }
 .footer .content a.forkme:hover {
   background-color: transparent;
